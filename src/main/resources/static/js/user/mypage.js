@@ -8,17 +8,25 @@
     const passwordChkUpwElem = passswordFrmElem.querySelector('#password-chk-input');
     const passwordSmtElem = passswordFrmElem.querySelector('#password-smt');
     const div = document.createElement('div');
+    div.innerHTML=`비밀번호가 일치하지 않습니다`;
+    div.id = 'errpasswordCHK';
+    div.style.color='red';
+    div.style.display='relative';
+    div.style.paddingLeft='125px'
+
     const div2 = document.createElement('div');
+    div2.innerHTML=`비밀번호가 일치합니다`;
+    div2.id = 'newerrpasswordCHK';
+    div2.style.color='green';
+    div2.style.display='relative';
+    div2.style.paddingLeft='125px'
 
     if (passswordFrmElem){
         passwordNewUpwElem.addEventListener('keyup', e => {
             const errpasswordCHKElem = paswordCHk.querySelector('#errpasswordCHK');
             const newerrpasswordCHKElem = paswordCHk.querySelector('#newerrpasswordCHK');
-            div.id = 'errpasswordCHK';
-            div2.id = 'newerrpasswordCHK';
             if (passwordChkUpwElem.value !== passwordNewUpwElem.value){
                 if (errpasswordCHKElem == null){
-                    div.innerHTML=`비밀번호가 일치하지 않습니다`;
                     paswordCHk.appendChild(div);
                     if (newerrpasswordCHKElem !=null){
                         newerrpasswordCHKElem.remove();
@@ -30,7 +38,6 @@
                 }
             }else{
                 if (newerrpasswordCHKElem == null){
-                    div2.innerHTML=`비밀번호가 일치합니다`;
                     paswordCHk.appendChild(div2)
                     if (errpasswordCHKElem != null){
                         errpasswordCHKElem.remove();
@@ -40,16 +47,10 @@
         });
 
         passwordChkUpwElem.addEventListener('keyup', (e) => {
-            div.id = 'errpasswordCHK';
             const errpasswordCHKElem = paswordCHk.querySelector('#errpasswordCHK');
             const newerrpasswordCHKElem = paswordCHk.querySelector('#newerrpasswordCHK');
-            div2.id = 'newerrpasswordCHK';
-
-            console.log(passwordNewUpwElem.value.length);
-            console.log(passwordChkUpwElem.value.length);
             if (passwordChkUpwElem.value !== passwordNewUpwElem.value){
                 if (errpasswordCHKElem == null){
-                    div.innerHTML=`비밀번호가 일치하지 않습니다`;
                     paswordCHk.appendChild(div);
                     if (newerrpasswordCHKElem !=null){
                         newerrpasswordCHKElem.remove();
@@ -61,7 +62,6 @@
                 }
             }else{
                 if (newerrpasswordCHKElem == null){
-                    div2.innerHTML=`비밀번호가 일치합니다`;
                     paswordCHk.appendChild(div2)
                     if (errpasswordCHKElem != null){
                         errpasswordCHKElem.remove();
